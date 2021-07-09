@@ -5,7 +5,10 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Data; 
 using System.Linq;
+using Repositories;
+using MySql.Data.MySqlClient;
 
 namespace Blazor.Contacts.Wasm.Server
 {
@@ -25,6 +28,8 @@ namespace Blazor.Contacts.Wasm.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddSingleton<IDbConnection>((sp) => new MySqlConnection(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IContactRepository, ContactRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
