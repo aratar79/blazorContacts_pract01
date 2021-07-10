@@ -36,6 +36,8 @@ namespace Server.Controllers
             if (string.IsNullOrEmpty(contact.LastName)) ModelState.AddModelError("LastName", "Last name can't be empty");
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
+            contact.Id = id;
+
             await _contactRepository.UpdateContact(contact);
 
             return CreatedAtAction(nameof(InsertContact), new { id = contact.Id }, contact);         

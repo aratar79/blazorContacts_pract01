@@ -72,7 +72,7 @@ namespace Repositories
                                 LastName = @LastName,
                                 Phone = @Phone,
                                 Address = @Address
-                            WHERE = @Id";
+                            WHERE Id = @Id";
 
                 var result = await _dbConnection.ExecuteAsync(
                     sql,
