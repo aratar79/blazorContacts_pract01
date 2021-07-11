@@ -42,7 +42,7 @@ namespace Repositories
         {
             try
             {
-                var sql = @"INSERT INTO Contacts (FirstName, LastName, Phone, Adress)
+                var sql = @"INSERT INTO Contacts (FirstName, LastName, Phone, Address)
                             VALUES (@FirstName, @LastName, @Phone, @Address)";
 
                 var result = await _dbConnection.ExecuteAsync(

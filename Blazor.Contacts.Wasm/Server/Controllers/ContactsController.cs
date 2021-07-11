@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Repositories;
@@ -42,5 +43,11 @@ namespace Server.Controllers
 
             return CreatedAtAction(nameof(InsertContact), new { id = contact.Id }, contact);         
         }
+
+        [HttpGet("{id}")]
+        public async Task<Contact> getContact(int id) => await _contactRepository.GetContact(id);
+
+        [HttpGet]
+        public async Task<IEnumerable<Contact>> getAll() => await _contactRepository.GetAll();
     }
 }
