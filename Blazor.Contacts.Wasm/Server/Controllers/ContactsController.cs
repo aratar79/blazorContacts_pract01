@@ -49,5 +49,8 @@ namespace Server.Controllers
 
         [HttpGet]
         public async Task<IEnumerable<Contact>> getAll() => await _contactRepository.GetAll();
+
+        [HttpDelete("{id}")]
+        public async Task deleteContact(int id) => await _contactRepository.DeleteContact(id);
     }
 }
