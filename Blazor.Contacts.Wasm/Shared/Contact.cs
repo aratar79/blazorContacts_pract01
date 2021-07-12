@@ -1,4 +1,10 @@
-namespace Shared
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Blazor.Contacts.Wasm.Shared
 {
     public class Contact
     {
@@ -8,8 +14,10 @@ namespace Shared
         public string Phone { get; set; }
         public string Address { get; set; }
 
-        public string FullName {
-            get {
+        public string FullName
+        {
+            get
+            {
                 return FirstName + ", " + LastName;
             }
         }

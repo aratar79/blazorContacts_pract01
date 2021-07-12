@@ -1,4 +1,4 @@
-﻿using Shared;
+﻿using Blazor.Contacts.Wasm.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;

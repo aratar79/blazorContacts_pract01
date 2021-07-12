@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Shared;
+using Blazor.Contacts.Wasm.Shared;
 
 namespace Repositories
 {

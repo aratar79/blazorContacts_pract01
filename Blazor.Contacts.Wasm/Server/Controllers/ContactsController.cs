@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Repositories;
-using Shared;
+using Blazor.Contacts.Wasm.Shared;
 
 namespace Server.Controllers
 {

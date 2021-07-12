@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using Dapper;
-using Shared;
+using Blazor.Contacts.Wasm.Shared;
+using System;
 
 namespace Repositories
 {
@@ -59,7 +60,8 @@ namespace Repositories
             }
             catch (System.Exception e)
             {
-                throw e;
+                Console.WriteLine(e.Message);
+                throw;
             }
         }
 
@@ -89,7 +91,8 @@ namespace Repositories
             }
             catch (System.Exception e)
             {
-                throw e;
+                Console.WriteLine(e.Message);
+                throw;
             }
         }
     }
