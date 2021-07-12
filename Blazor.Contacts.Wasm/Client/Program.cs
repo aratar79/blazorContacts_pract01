@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Client.Services;
+using Services;
+
 
 namespace Blazor.Contacts.Wasm.Client
 {

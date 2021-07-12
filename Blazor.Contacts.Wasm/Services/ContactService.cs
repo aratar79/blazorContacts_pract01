@@ -1,10 +1,13 @@
+﻿using Shared;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Text;
 using System.Threading.Tasks;
-using Shared;
 
-namespace Client.Services
+namespace Services
 {
     public class ContactService : IContactService
     {
@@ -19,8 +22,8 @@ namespace Client.Services
         public async Task<Contact> GetDetails(int id) => await _httpClient.GetFromJsonAsync<Contact>($"api/contacts/{id}");
         public async Task SaveContact(Contact contact)
         {
-            if (contact.Id == 0)  await _httpClient.PostAsJsonAsync<Contact>($"api/contacts", contact);
-            else await _httpClient.PutAsJsonAsync<Contact>($"api/contacts/{contact.Id}", contact);       
+            if (contact.Id == 0) await _httpClient.PostAsJsonAsync<Contact>($"api/contacts", contact);
+            else await _httpClient.PutAsJsonAsync<Contact>($"api/contacts/{contact.Id}", contact);
         }
     }
 }
