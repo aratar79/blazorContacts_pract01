@@ -37,7 +37,7 @@ namespace Server.Controllers
             if (string.IsNullOrEmpty(contact.LastName)) ModelState.AddModelError("LastName", "Last name can't be empty");
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            contact.Id = id;
+            //contact.Id = id; Code valid only for testing with postman, no id in the body
 
             await _contactRepository.UpdateContact(contact);
 

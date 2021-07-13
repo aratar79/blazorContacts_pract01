@@ -1,5 +1,4 @@
-﻿@page "/contactdetails"
-@page "/contactdetails/{id:int}"
+﻿@page "/contactdelete/{id:int}"
 @inject IContactService ContactService
 @inject NavigationManager NavigationManager
 
@@ -9,7 +8,7 @@
 }
 else
 {
-    <EditForm Model="contact" OnValidSubmit="Save">
+    <EditForm Model="contact" OnValidSubmit="Delete">
         <div class="card">
             <h5 class="card-header">Contact Details</h5>
             <div class="card-body">
@@ -41,7 +40,7 @@ else
 
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input type="submit" value="Save" class="btn btn-success" />
+                            <input type="submit" value="Delete" class="btn btn-danger" />
                             <input type="button" value="Cancel" class="btn btn-secondary" @onclick="NavigateHome" />
                         </div>
                         <div class="col-md-4 mb-3">
@@ -61,12 +60,11 @@ else
     public Contact contact;
     protected async override Task OnInitializedAsync()
     {
-        if (id == 0) contact = new Contact();
-        else contact = await ContactService.GetDetails(id);
+        contact = await ContactService.GetDetails(id);
     }
-    protected async Task Save()
+    protected async Task Delete()
     {
-        await ContactService.SaveContact(contact);
+        await ContactService.DeleteContact(id);
         NavigateHome();
     }
     private void NavigateHome()
